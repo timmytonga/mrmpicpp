@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/timmytonga/CLionProjects/mapreducecpp/errors.h
+errno.h
+-
+stdio.h
+-
+string.h
+-
+
+/home/timmytonga/CLionProjects/mapreducecpp/main.cpp
+workq.h
+/home/timmytonga/CLionProjects/mapreducecpp/workq.h
+iostream
+-
+fstream
+-
+map
+-
+sys/stat.h
+-
+dirent.h
+-
+errors.h
+/home/timmytonga/CLionProjects/mapreducecpp/errors.h
+unistd.h
+-
+
+/home/timmytonga/CLionProjects/mapreducecpp/workq.h
+pthread.h
+-
+
