@@ -1,0 +1,3 @@
+#!/bin/bash
+mpirun --prefix /pkg/openmpi/2.0.2/ -np 8 --hostfile hosts ./ss "/scratch/tim/"
+
