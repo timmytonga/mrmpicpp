@@ -32,7 +32,7 @@ typedef struct kv{
 size_t path_max;
 size_t name_max;
 char processor_name[MPI_MAX_PROCESSOR_NAME];
-int world_size, rank, name_len;
+int world_size, nrank, name_len;
 
 void start(char * filepath){
     /* First get path length and name length */
@@ -116,12 +116,12 @@ void receiveWork(queue<char*>  &workqueue){
         MPI_Get_count(&status, MPI_CHAR, &path_len);
         if (path_len == 1) break; // signal (empty str) */
         ierr = MPI_Recv(&buf, path_max, MPI_CHAR, 0, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-        DPRINTF(("Processor %s, rank %d: waiting to receive...\n", processor_name, rank));
+        //DPRINTF(("Processor %s, nrank %d: waiting to receive...\n", processor_name, nrank));
         if (status.MPI_TAG == 1){
             break;
         }
         else{
-            DPRINTF(("Processor %s, rank %d: Received path %s\n", processor_name, rank, buf));
+            DPRINTF(("Processor %s, rank %d: Received path %s\n", processor_name, nrank, buf));
             workqueue.push(buf);
         }
     }
@@ -175,7 +175,7 @@ void reduce(map<string, int> &result){
     // if master then receive data sets and add up result
     // else we send our maps to master
     MPI_Datatype kvtype = register_kv_type(); // register the kv type... remember to free after finish
-    if (rank == 0){ // master... receive from slaves and add them up modifying result
+    if (nrank == 0){ // master... receive from slaves and add them up modifying result
         MPI_Status status, status2;
         /* FIRST COLLECT PACKAGES FROM SLAVES  */
         kv *    collect[world_size-1];     // array to store results from slaves
@@ -227,19 +227,24 @@ int main(int argc, char ** argv){
     /* Send argv to all */
     MPI_Init(&argc, &argv); // argv will be original link
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &nrank);
     MPI_Get_processor_name(processor_name, &name_len);
 
     map<string, int> result;
     queue<char *> workqueue;
 
-    printf("Hello this is processor %s, rank %d.\n", processor_name, rank);
+    printf("Hello this is processor %s, nrank %d.\n", processor_name, nrank);
+    if (argc != 2){
+        fprintf(stderr, "Usage: ... ./wordcount <src_dir> <output_dest>\n");
+        MPI_Abort(MPI_COMM_WORLD, NULL);
+        exit(1);
+    }
     start(argv[1]);
     /* FIRST DISTRIBUTE WORK */
-    if (rank == 0){
+    if (nrank == 0){
         /* Setup job... open argv[1] (original dir), obtain paths of containing files */
         map<string,int> output;
-        printf("Processor %s, rank %d: Starting with %s\n", processor_name, rank, argv[1]);
+        printf("Processor %s, nrank %d: Starting with %s\n", processor_name, nrank, argv[1]);
         masterSendPath(argv[1], workqueue);
         // receive til finish
     }
@@ -252,7 +257,7 @@ int main(int argc, char ** argv){
     MPI_Barrier(MPI_COMM_WORLD);
     reduce(result); // all process send result to master for reducing
     // finish by writing to file
-    if (rank == 0)
+    if (nrank == 0)
         writeToFile(argv[2], result);
     MPI_Barrier(MPI_COMM_WORLD);
     MPI_Finalize();

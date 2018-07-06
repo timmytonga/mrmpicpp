@@ -14,25 +14,27 @@ stdio.h
 string.h
 -
 
-/home/timmytonga/CLionProjects/mapreducecpp/main.cpp
-workq.h
-/home/timmytonga/CLionProjects/mapreducecpp/workq.h
+/home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi.cpp
+mpi/mpi.h
+-
+errors.h
+/home/timmytonga/CLionProjects/mapreducecpp/errors.h
 iostream
 -
 fstream
 -
+string
+-
+queue
+-
 map
+-
+unistd.h
 -
 sys/stat.h
 -
 dirent.h
 -
-errors.h
-/home/timmytonga/CLionProjects/mapreducecpp/errors.h
-unistd.h
--
-
-/home/timmytonga/CLionProjects/mapreducecpp/workq.h
-pthread.h
+cstddef
 -
 

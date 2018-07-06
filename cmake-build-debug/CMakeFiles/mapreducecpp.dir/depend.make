@@ -5,7 +5,6 @@ CMakeFiles/mapreducecpp.dir/workq.c.o: errors.h
 CMakeFiles/mapreducecpp.dir/workq.c.o: ../workq.c
 CMakeFiles/mapreducecpp.dir/workq.c.o: ../workq.h
 
-CMakeFiles/mapreducecpp.dir/main.cpp.o: ../errors.h
-CMakeFiles/mapreducecpp.dir/main.cpp.o: ../main.cpp
-CMakeFiles/mapreducecpp.dir/main.cpp.o: ../workq.h
+CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o: ../errors.h
+CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o: ../wordcountmpi.cpp
 
