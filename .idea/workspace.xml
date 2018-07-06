@@ -12,8 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a8a499f-e102-4f4d-a165-b01ff0744850" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/wordcountmpi.cpp" afterPath="$PROJECT_DIR$/wordcountmpi.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -24,6 +22,29 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="wordcountthreaded.cpp" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/wordcountthreaded.cpp">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="283">
+                    <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+                    <folding>
+                      <element signature="e#78#96#0" expanded="true" />
+                      <element signature="e#277#298#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -31,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+              <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -40,7 +61,7 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
+            <state relative-caret-position="-1307">
               <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
                 <element signature="e#114#143#0" expanded="true" />
@@ -50,46 +71,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wordcountmpi.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wordcountmpi.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wordcountmpi.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+            <state relative-caret-position="1994">
+              <caret line="245" column="18" lean-forward="true" selection-start-line="245" selection-start-column="18" selection-end-line="245" selection-end-column="18" />
               <folding>
-                <element signature="e#44#64#0" expanded="true" />
+                <element signature="e#113#133#0" expanded="true" />
+                <element signature="e#181#200#0" expanded="true" />
+                <element signature="e#289#308#0" expanded="true" />
+                <element signature="e#807#1299#0" expanded="false" />
+                <element signature="e#1301#3357#0" expanded="false" />
+                <element signature="e#3359#4047#0" expanded="false" />
+                <element signature="e#4049#5045#0" expanded="false" />
+                <element signature="e#5047#5241#0" expanded="false" />
+                <element signature="e#7723#8094#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wordcountthreaded.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wordcountthreaded.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="102" column="59" lean-forward="true" selection-start-line="102" selection-start-column="59" selection-end-line="102" selection-end-column="59" />
-              <folding>
-                <element signature="e#78#96#0" expanded="true" />
-                <element signature="e#277#298#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mpiSendStr.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mpiSendStr.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mpiSendStr.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1610">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mapreduce.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mapreduce.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="1548">
+              <caret line="107" column="56" lean-forward="false" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -103,6 +109,8 @@
       <find>mapreducecpp</find>
       <find>delete</find>
       <find>path_max</find>
+      <find>queue</find>
+      <find>deque</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,9 +126,9 @@
         <option value="$PROJECT_DIR$/cmake-build-debug/wordcountone.cpp" />
         <option value="$PROJECT_DIR$/cmake-build-debug/errors.h" />
         <option value="$PROJECT_DIR$/workq.h" />
-        <option value="$PROJECT_DIR$/wordcountthreaded.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/wordcountthreaded.cpp" />
         <option value="$PROJECT_DIR$/wordcountmpi.cpp" />
       </list>
     </option>
@@ -132,10 +140,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2404" />
-    <option name="y" value="164" />
-    <option name="width" value="1357" />
-    <option name="height" value="841" />
+    <option name="x" value="2486" />
+    <option name="y" value="57" />
+    <option name="width" value="1289" />
+    <option name="height" value="978" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -222,18 +230,18 @@
       <workItem from="1525729131955" duration="15160000" />
       <workItem from="1526596065041" duration="9168000" />
       <workItem from="1527715586516" duration="7554000" />
-      <workItem from="1530137409841" duration="6015000" />
+      <workItem from="1530137409841" duration="31775000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37897000" />
+    <option name="totallyTimeSpent" value="63657000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2404" y="164" width="1357" height="841" extended-state="0" />
+    <frame x="2486" y="57" width="1289" height="978" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.201916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26550388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3240469" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -290,7 +298,15 @@
         <state relative-caret-position="306">
           <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
           <folding>
-            <element signature="e#44#64#0" expanded="true" />
+            <element signature="e#113#133#0" expanded="true" />
+            <element signature="e#181#200#0" expanded="true" />
+            <element signature="e#289#308#0" expanded="true" />
+            <element signature="e#807#1299#0" expanded="false" />
+            <element signature="e#1301#3357#0" expanded="false" />
+            <element signature="e#3359#4047#0" expanded="false" />
+            <element signature="e#4049#5045#0" expanded="false" />
+            <element signature="e#5047#5241#0" expanded="false" />
+            <element signature="e#7723#8094#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -338,7 +354,15 @@
         <state relative-caret-position="342">
           <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding>
-            <element signature="e#44#64#0" expanded="true" />
+            <element signature="e#113#133#0" expanded="true" />
+            <element signature="e#181#200#0" expanded="true" />
+            <element signature="e#289#308#0" expanded="true" />
+            <element signature="e#807#1299#0" expanded="false" />
+            <element signature="e#1301#3357#0" expanded="false" />
+            <element signature="e#3359#4047#0" expanded="false" />
+            <element signature="e#4049#5045#0" expanded="false" />
+            <element signature="e#5047#5241#0" expanded="false" />
+            <element signature="e#7723#8094#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -388,6 +412,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="19" />
+          <folding>
+            <element signature="e#373#391#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -419,25 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#114#143#0" expanded="true" />
-            <element signature="e#294#315#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mapreduce.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -446,20 +454,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wordcountmpi.cpp">
+    <entry file="file://$PROJECT_DIR$/mpiSendStr.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+        <state relative-caret-position="1548">
+          <caret line="107" column="56" lean-forward="false" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1307">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
-            <element signature="e#44#64#0" expanded="true" />
+            <element signature="e#114#143#0" expanded="true" />
+            <element signature="e#294#315#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wordcountthreaded.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="102" column="59" lean-forward="true" selection-start-line="102" selection-start-column="59" selection-end-line="102" selection-end-column="59" />
+        <state relative-caret-position="283">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding>
             <element signature="e#78#96#0" expanded="true" />
             <element signature="e#277#298#0" expanded="true" />
@@ -467,11 +492,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mpiSendStr.c">
+    <entry file="file://$PROJECT_DIR$/wordcountmpi.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1610">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1994">
+          <caret line="245" column="18" lean-forward="true" selection-start-line="245" selection-start-column="18" selection-end-line="245" selection-end-column="18" />
+          <folding>
+            <element signature="e#113#133#0" expanded="true" />
+            <element signature="e#181#200#0" expanded="true" />
+            <element signature="e#289#308#0" expanded="true" />
+            <element signature="e#807#1299#0" expanded="false" />
+            <element signature="e#1301#3357#0" expanded="false" />
+            <element signature="e#3359#4047#0" expanded="false" />
+            <element signature="e#4049#5045#0" expanded="false" />
+            <element signature="e#5047#5241#0" expanded="false" />
+            <element signature="e#7723#8094#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
