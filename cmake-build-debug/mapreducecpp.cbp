@@ -84,7 +84,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi.cpp">
+		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp">
 			<Option target="mapreducecpp"/>
 		</Unit>
 		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/workq.c">

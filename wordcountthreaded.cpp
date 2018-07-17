@@ -70,16 +70,12 @@ void engine(void * arg){
 
     if (S_ISREG(filestat.st_mode)) // if it's a file then we just run it and output the result
     {
-        int len = strlen(path);
-        const char * ext = path[len-4];
-        if (strcmp(ext,"txt") == 0) {
-            map<string, int> temp = wordcount(path); //map
-            // modifying the main output so we lock mutex
-            pthread_mutex_lock(&countLock);
-            for (auto kv: temp)
-                output[kv.first] += kv.second;
-            pthread_mutex_unlock(&countLock);
-        }
+        map<string, int> temp = wordcount(path); //map
+        // modifying the main output so we lock mutex
+        pthread_mutex_lock(&countLock);
+        for (auto kv: temp)
+            output[kv.first] += kv.second;
+        pthread_mutex_unlock(&countLock);
     }
 
     else if (S_ISDIR(filestat.st_mode)){

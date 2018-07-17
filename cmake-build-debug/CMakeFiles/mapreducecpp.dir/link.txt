@@ -1,1 +1,1 @@
-/usr/bin/c++   -pthread -g   CMakeFiles/mapreducecpp.dir/workq.c.o CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o  -o mapreducecpp -ldl 
+/usr/bin/c++   -pthread -g   CMakeFiles/mapreducecpp.dir/workq.c.o CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o  -o mapreducecpp -ldl 

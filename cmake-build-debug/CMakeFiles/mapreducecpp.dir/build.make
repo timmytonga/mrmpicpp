@@ -81,40 +81,40 @@ CMakeFiles/mapreducecpp.dir/workq.c.o.provides: CMakeFiles/mapreducecpp.dir/work
 CMakeFiles/mapreducecpp.dir/workq.c.o.provides.build: CMakeFiles/mapreducecpp.dir/workq.c.o
 
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o: CMakeFiles/mapreducecpp.dir/flags.make
-CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o: ../wordcountmpi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o -c /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi.cpp
+CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o: CMakeFiles/mapreducecpp.dir/flags.make
+CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o: ../wordcountmpi2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o -c /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi.cpp > CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.i
+CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp > CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.i
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi.cpp -o CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.s
+CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp -o CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.s
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o.requires:
+CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.requires:
 
-.PHONY : CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o.requires
+.PHONY : CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.requires
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o.provides: CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o.requires
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o.provides.build
-.PHONY : CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o.provides
+CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.provides: CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.requires
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.provides.build
+.PHONY : CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.provides
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o.provides.build: CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o
+CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.provides.build: CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o
 
 
 # Object files for target mapreducecpp
 mapreducecpp_OBJECTS = \
 "CMakeFiles/mapreducecpp.dir/workq.c.o" \
-"CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o"
+"CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o"
 
 # External object files for target mapreducecpp
 mapreducecpp_EXTERNAL_OBJECTS =
 
 mapreducecpp: CMakeFiles/mapreducecpp.dir/workq.c.o
-mapreducecpp: CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o
+mapreducecpp: CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o
 mapreducecpp: CMakeFiles/mapreducecpp.dir/build.make
 mapreducecpp: CMakeFiles/mapreducecpp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mapreducecpp"
@@ -126,7 +126,7 @@ CMakeFiles/mapreducecpp.dir/build: mapreducecpp
 .PHONY : CMakeFiles/mapreducecpp.dir/build
 
 CMakeFiles/mapreducecpp.dir/requires: CMakeFiles/mapreducecpp.dir/workq.c.o.requires
-CMakeFiles/mapreducecpp.dir/requires: CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o.requires
+CMakeFiles/mapreducecpp.dir/requires: CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.requires
 
 .PHONY : CMakeFiles/mapreducecpp.dir/requires
 

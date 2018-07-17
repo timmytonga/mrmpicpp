@@ -13,7 +13,7 @@ set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi.cpp" "/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o"
+  "/home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp" "/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

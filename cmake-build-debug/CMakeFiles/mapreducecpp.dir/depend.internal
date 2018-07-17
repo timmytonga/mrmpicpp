@@ -5,6 +5,7 @@ CMakeFiles/mapreducecpp.dir/workq.c.o
  /home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/errors.h
  /home/timmytonga/CLionProjects/mapreducecpp/workq.c
  /home/timmytonga/CLionProjects/mapreducecpp/workq.h
-CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o
+CMakeFiles/mapreducecpp.dir/main.cpp.o
  /home/timmytonga/CLionProjects/mapreducecpp/errors.h
- /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi.cpp
+ /home/timmytonga/CLionProjects/mapreducecpp/main.cpp
+ /home/timmytonga/CLionProjects/mapreducecpp/workq.h

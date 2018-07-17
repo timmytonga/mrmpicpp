@@ -123,32 +123,32 @@ mapreducecpp/fast:
 	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/build
 .PHONY : mapreducecpp/fast
 
-wordcountmpi.o: wordcountmpi.cpp.o
+wordcountmpi2.o: wordcountmpi2.cpp.o
 
-.PHONY : wordcountmpi.o
+.PHONY : wordcountmpi2.o
 
 # target to build an object file
-wordcountmpi.cpp.o:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o
-.PHONY : wordcountmpi.cpp.o
+wordcountmpi2.cpp.o:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o
+.PHONY : wordcountmpi2.cpp.o
 
-wordcountmpi.i: wordcountmpi.cpp.i
+wordcountmpi2.i: wordcountmpi2.cpp.i
 
-.PHONY : wordcountmpi.i
+.PHONY : wordcountmpi2.i
 
 # target to preprocess a source file
-wordcountmpi.cpp.i:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.i
-.PHONY : wordcountmpi.cpp.i
+wordcountmpi2.cpp.i:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.i
+.PHONY : wordcountmpi2.cpp.i
 
-wordcountmpi.s: wordcountmpi.cpp.s
+wordcountmpi2.s: wordcountmpi2.cpp.s
 
-.PHONY : wordcountmpi.s
+.PHONY : wordcountmpi2.s
 
 # target to generate assembly for a file
-wordcountmpi.cpp.s:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.s
-.PHONY : wordcountmpi.cpp.s
+wordcountmpi2.cpp.s:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.s
+.PHONY : wordcountmpi2.cpp.s
 
 workq.o: workq.c.o
 
@@ -186,9 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... mapreducecpp"
-	@echo "... wordcountmpi.o"
-	@echo "... wordcountmpi.i"
-	@echo "... wordcountmpi.s"
+	@echo "... wordcountmpi2.o"
+	@echo "... wordcountmpi2.i"
+	@echo "... wordcountmpi2.s"
 	@echo "... workq.o"
 	@echo "... workq.i"
 	@echo "... workq.s"

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/mapreducecpp.dir/workq.c.o"
-  "CMakeFiles/mapreducecpp.dir/wordcountmpi.cpp.o"
+  "CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o"
   "mapreducecpp.pdb"
   "mapreducecpp"
 )

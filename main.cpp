@@ -18,7 +18,7 @@ extern "C"
 #include "errors.h"
 #include <unistd.h>
 /* THREADED */
-#define MAXTHREADS 5
+#define MAXTHREADS 4
 
 workq_t workqueue;
 
@@ -75,9 +75,9 @@ void engine(void * arg){
 
     if (S_ISREG(filestat.st_mode)) // if it's a file then we just run it and output the result
     {
-        size_t len = strlen(path);
-        const char * ext = &path[len-4];
-        DPRINTF((">>>> Extension is %s\n", ext));
+        //size_t len = strlen(path);
+        //const char * ext = &path[len-4];
+        //DPRINTF((">>>> Extension is %s\n", ext));
 
         map<string, int> temp = wordcount(path); //map
         // modifying the main output so we lock mutex
