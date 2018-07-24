@@ -123,59 +123,86 @@ mapreducecpp/fast:
 	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/build
 .PHONY : mapreducecpp/fast
 
-wordcountmpi2.o: wordcountmpi2.cpp.o
+keyvalue.o: keyvalue.cpp.o
 
-.PHONY : wordcountmpi2.o
-
-# target to build an object file
-wordcountmpi2.cpp.o:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o
-.PHONY : wordcountmpi2.cpp.o
-
-wordcountmpi2.i: wordcountmpi2.cpp.i
-
-.PHONY : wordcountmpi2.i
-
-# target to preprocess a source file
-wordcountmpi2.cpp.i:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.i
-.PHONY : wordcountmpi2.cpp.i
-
-wordcountmpi2.s: wordcountmpi2.cpp.s
-
-.PHONY : wordcountmpi2.s
-
-# target to generate assembly for a file
-wordcountmpi2.cpp.s:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.s
-.PHONY : wordcountmpi2.cpp.s
-
-workq.o: workq.c.o
-
-.PHONY : workq.o
+.PHONY : keyvalue.o
 
 # target to build an object file
-workq.c.o:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/workq.c.o
-.PHONY : workq.c.o
+keyvalue.cpp.o:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o
+.PHONY : keyvalue.cpp.o
 
-workq.i: workq.c.i
+keyvalue.i: keyvalue.cpp.i
 
-.PHONY : workq.i
+.PHONY : keyvalue.i
 
 # target to preprocess a source file
-workq.c.i:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/workq.c.i
-.PHONY : workq.c.i
+keyvalue.cpp.i:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/keyvalue.cpp.i
+.PHONY : keyvalue.cpp.i
 
-workq.s: workq.c.s
+keyvalue.s: keyvalue.cpp.s
 
-.PHONY : workq.s
+.PHONY : keyvalue.s
 
 # target to generate assembly for a file
-workq.c.s:
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/workq.c.s
-.PHONY : workq.c.s
+keyvalue.cpp.s:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/keyvalue.cpp.s
+.PHONY : keyvalue.cpp.s
+
+mapreduce.o: mapreduce.cpp.o
+
+.PHONY : mapreduce.o
+
+# target to build an object file
+mapreduce.cpp.o:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o
+.PHONY : mapreduce.cpp.o
+
+mapreduce.i: mapreduce.cpp.i
+
+.PHONY : mapreduce.i
+
+# target to preprocess a source file
+mapreduce.cpp.i:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/mapreduce.cpp.i
+.PHONY : mapreduce.cpp.i
+
+mapreduce.s: mapreduce.cpp.s
+
+.PHONY : mapreduce.s
+
+# target to generate assembly for a file
+mapreduce.cpp.s:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/mapreduce.cpp.s
+.PHONY : mapreduce.cpp.s
+
+wordcountmain.o: wordcountmain.cpp.o
+
+.PHONY : wordcountmain.o
+
+# target to build an object file
+wordcountmain.cpp.o:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o
+.PHONY : wordcountmain.cpp.o
+
+wordcountmain.i: wordcountmain.cpp.i
+
+.PHONY : wordcountmain.i
+
+# target to preprocess a source file
+wordcountmain.cpp.i:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.i
+.PHONY : wordcountmain.cpp.i
+
+wordcountmain.s: wordcountmain.cpp.s
+
+.PHONY : wordcountmain.s
+
+# target to generate assembly for a file
+wordcountmain.cpp.s:
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.s
+.PHONY : wordcountmain.cpp.s
 
 # Help Target
 help:
@@ -186,12 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... mapreducecpp"
-	@echo "... wordcountmpi2.o"
-	@echo "... wordcountmpi2.i"
-	@echo "... wordcountmpi2.s"
-	@echo "... workq.o"
-	@echo "... workq.i"
-	@echo "... workq.s"
+	@echo "... keyvalue.o"
+	@echo "... keyvalue.i"
+	@echo "... keyvalue.s"
+	@echo "... mapreduce.o"
+	@echo "... mapreduce.i"
+	@echo "... mapreduce.s"
+	@echo "... wordcountmain.o"
+	@echo "... wordcountmain.i"
+	@echo "... wordcountmain.s"
 .PHONY : help
 
 

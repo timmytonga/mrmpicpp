@@ -1,24 +1,18 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "C"
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_C
-  "/home/timmytonga/CLionProjects/mapreducecpp/workq.c" "/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles/mapreducecpp.dir/workq.c.o"
-  )
-set(CMAKE_C_COMPILER_ID "GNU")
-
-# The include file search paths:
-set(CMAKE_C_TARGET_INCLUDE_PATH
-  )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp" "/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o"
+  "/home/timmytonga/CLionProjects/mapreducecpp/keyvalue.cpp" "/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o"
+  "/home/timmytonga/CLionProjects/mapreducecpp/mapreduce.cpp" "/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o"
+  "/home/timmytonga/CLionProjects/mapreducecpp/wordcountmain.cpp" "/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/include/mpi"
   )
 
 # Targets to which this target links.

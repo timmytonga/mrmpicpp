@@ -57,67 +57,93 @@ include CMakeFiles/mapreducecpp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mapreducecpp.dir/flags.make
 
-CMakeFiles/mapreducecpp.dir/workq.c.o: CMakeFiles/mapreducecpp.dir/flags.make
-CMakeFiles/mapreducecpp.dir/workq.c.o: ../workq.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mapreducecpp.dir/workq.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mapreducecpp.dir/workq.c.o   -c /home/timmytonga/CLionProjects/mapreducecpp/workq.c
+CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o: CMakeFiles/mapreducecpp.dir/flags.make
+CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o: ../mapreduce.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o -c /home/timmytonga/CLionProjects/mapreducecpp/mapreduce.cpp
 
-CMakeFiles/mapreducecpp.dir/workq.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mapreducecpp.dir/workq.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/timmytonga/CLionProjects/mapreducecpp/workq.c > CMakeFiles/mapreducecpp.dir/workq.c.i
+CMakeFiles/mapreducecpp.dir/mapreduce.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mapreducecpp.dir/mapreduce.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/timmytonga/CLionProjects/mapreducecpp/mapreduce.cpp > CMakeFiles/mapreducecpp.dir/mapreduce.cpp.i
 
-CMakeFiles/mapreducecpp.dir/workq.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mapreducecpp.dir/workq.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/timmytonga/CLionProjects/mapreducecpp/workq.c -o CMakeFiles/mapreducecpp.dir/workq.c.s
+CMakeFiles/mapreducecpp.dir/mapreduce.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mapreducecpp.dir/mapreduce.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/timmytonga/CLionProjects/mapreducecpp/mapreduce.cpp -o CMakeFiles/mapreducecpp.dir/mapreduce.cpp.s
 
-CMakeFiles/mapreducecpp.dir/workq.c.o.requires:
+CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o.requires:
 
-.PHONY : CMakeFiles/mapreducecpp.dir/workq.c.o.requires
+.PHONY : CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o.requires
 
-CMakeFiles/mapreducecpp.dir/workq.c.o.provides: CMakeFiles/mapreducecpp.dir/workq.c.o.requires
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/workq.c.o.provides.build
-.PHONY : CMakeFiles/mapreducecpp.dir/workq.c.o.provides
+CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o.provides: CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o.requires
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o.provides.build
+.PHONY : CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o.provides
 
-CMakeFiles/mapreducecpp.dir/workq.c.o.provides.build: CMakeFiles/mapreducecpp.dir/workq.c.o
+CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o.provides.build: CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o
 
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o: CMakeFiles/mapreducecpp.dir/flags.make
-CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o: ../wordcountmpi2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o -c /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp
+CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o: CMakeFiles/mapreducecpp.dir/flags.make
+CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o: ../keyvalue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o -c /home/timmytonga/CLionProjects/mapreducecpp/keyvalue.cpp
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp > CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.i
+CMakeFiles/mapreducecpp.dir/keyvalue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mapreducecpp.dir/keyvalue.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/timmytonga/CLionProjects/mapreducecpp/keyvalue.cpp > CMakeFiles/mapreducecpp.dir/keyvalue.cpp.i
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp -o CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.s
+CMakeFiles/mapreducecpp.dir/keyvalue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mapreducecpp.dir/keyvalue.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/timmytonga/CLionProjects/mapreducecpp/keyvalue.cpp -o CMakeFiles/mapreducecpp.dir/keyvalue.cpp.s
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.requires:
+CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o.requires:
 
-.PHONY : CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.requires
+.PHONY : CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o.requires
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.provides: CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.requires
-	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.provides.build
-.PHONY : CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.provides
+CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o.provides: CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o.requires
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o.provides.build
+.PHONY : CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o.provides
 
-CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.provides.build: CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o
+CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o.provides.build: CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o
+
+
+CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o: CMakeFiles/mapreducecpp.dir/flags.make
+CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o: ../wordcountmain.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o -c /home/timmytonga/CLionProjects/mapreducecpp/wordcountmain.cpp
+
+CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/timmytonga/CLionProjects/mapreducecpp/wordcountmain.cpp > CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.i
+
+CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/timmytonga/CLionProjects/mapreducecpp/wordcountmain.cpp -o CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.s
+
+CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o.requires:
+
+.PHONY : CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o.requires
+
+CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o.provides: CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o.requires
+	$(MAKE) -f CMakeFiles/mapreducecpp.dir/build.make CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o.provides.build
+.PHONY : CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o.provides
+
+CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o.provides.build: CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o
 
 
 # Object files for target mapreducecpp
 mapreducecpp_OBJECTS = \
-"CMakeFiles/mapreducecpp.dir/workq.c.o" \
-"CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o"
+"CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o" \
+"CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o" \
+"CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o"
 
 # External object files for target mapreducecpp
 mapreducecpp_EXTERNAL_OBJECTS =
 
-mapreducecpp: CMakeFiles/mapreducecpp.dir/workq.c.o
-mapreducecpp: CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o
+mapreducecpp: CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o
+mapreducecpp: CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o
+mapreducecpp: CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o
 mapreducecpp: CMakeFiles/mapreducecpp.dir/build.make
 mapreducecpp: CMakeFiles/mapreducecpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mapreducecpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable mapreducecpp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mapreducecpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -125,8 +151,9 @@ CMakeFiles/mapreducecpp.dir/build: mapreducecpp
 
 .PHONY : CMakeFiles/mapreducecpp.dir/build
 
-CMakeFiles/mapreducecpp.dir/requires: CMakeFiles/mapreducecpp.dir/workq.c.o.requires
-CMakeFiles/mapreducecpp.dir/requires: CMakeFiles/mapreducecpp.dir/wordcountmpi2.cpp.o.requires
+CMakeFiles/mapreducecpp.dir/requires: CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o.requires
+CMakeFiles/mapreducecpp.dir/requires: CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o.requires
+CMakeFiles/mapreducecpp.dir/requires: CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o.requires
 
 .PHONY : CMakeFiles/mapreducecpp.dir/requires
 

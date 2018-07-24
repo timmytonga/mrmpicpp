@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/usr/include/mpi"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -67,6 +68,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/usr/include/mpi"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -84,13 +86,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/wordcountmpi2.cpp">
+		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/keyvalue.cpp">
 			<Option target="mapreducecpp"/>
 		</Unit>
-		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/workq.c">
+		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/keyvalue.h">
 			<Option target="mapreducecpp"/>
 		</Unit>
-		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/workq.h">
+		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/mapreduce.cpp">
+			<Option target="mapreducecpp"/>
+		</Unit>
+		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/mapreduce.h">
+			<Option target="mapreducecpp"/>
+		</Unit>
+		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/wordcountmain.cpp">
 			<Option target="mapreducecpp"/>
 		</Unit>
 		<Unit filename="/home/timmytonga/CLionProjects/mapreducecpp/CMakeLists.txt">

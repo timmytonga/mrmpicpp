@@ -3,7 +3,7 @@
 //
 #define DEBUG // for debugging purposes
 
-#include <mpi/mpi.h>
+#include <mpi.h>
 #include "errors.h"     // errors and debugging
 /* Data structure and io*/
 #include <iostream>
