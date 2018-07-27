@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o"
   "CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o"
   "CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o"
-  "CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o"
   "mapreducecpp.pdb"
   "mapreducecpp"
 )

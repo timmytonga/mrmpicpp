@@ -64,7 +64,7 @@ private:
     void setup_machine_specifics();     // setup and initialize variables like path_max, name_max, etc.
 public:
     KeyValue<Key, Value> *keyValue;     // keyValue class for mapping and reducing purposes... middleman style
-    explicit MapReduce(MPI_Comm comm = MPI_COMM_WORLD, char* inputPath = NULL, char* outputPath= NULL);       // setup all the private variables and initializes MPI
+    explicit MapReduce(MPI_Comm comm, char* inputPath, char* outputPath);       // setup all the private variables and initializes MPI
     ~MapReduce();
 
     // the user will write the mapping function f (that only uses filename) to process file and emit (add) a kv pair.

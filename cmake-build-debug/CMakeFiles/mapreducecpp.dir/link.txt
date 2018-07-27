@@ -1,1 +1,1 @@
-/usr/bin/c++   -pthread -g   CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o  -o mapreducecpp -ldl 
+/usr/bin/c++  -g   CMakeFiles/mapreducecpp.dir/wordcountmain.cpp.o CMakeFiles/mapreducecpp.dir/mapreduce.cpp.o CMakeFiles/mapreducecpp.dir/keyvalue.cpp.o  -o mapreducecpp -Wl,-rpath,/usr/lib/openmpi/lib -ldl /usr/lib/openmpi/lib/libmpi_cxx.so /usr/lib/openmpi/lib/libmpi.so 
