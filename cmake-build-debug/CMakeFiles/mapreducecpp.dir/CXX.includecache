@@ -14,11 +14,19 @@ stdio.h
 string.h
 -
 
+/home/timmytonga/CLionProjects/mapreducecpp/keyvalue.cpp
+keyvalue.h
+/home/timmytonga/CLionProjects/mapreducecpp/keyvalue.h
+
+/home/timmytonga/CLionProjects/mapreducecpp/keyvalue.h
+map
+-
+vector
+-
+
 /home/timmytonga/CLionProjects/mapreducecpp/mapreduce.cpp
 mapreduce.h
 /home/timmytonga/CLionProjects/mapreducecpp/mapreduce.h
-mpi.h
-/home/timmytonga/CLionProjects/mapreducecpp/mpi.h
 errors.h
 /home/timmytonga/CLionProjects/mapreducecpp/errors.h
 unistd.h
@@ -31,6 +39,8 @@ dirent.h
 /home/timmytonga/CLionProjects/mapreducecpp/mapreduce.h
 mpi.h
 /home/timmytonga/CLionProjects/mapreducecpp/mpi.h
+keyvalue.h
+/home/timmytonga/CLionProjects/mapreducecpp/keyvalue.h
 string
 -
 iostream
@@ -43,7 +53,9 @@ queue
 /home/timmytonga/CLionProjects/mapreducecpp/wordcountmain.cpp
 mapreduce.h
 /home/timmytonga/CLionProjects/mapreducecpp/mapreduce.h
-stdio.h
+fstream
+-
+sys/stat.h
 -
 
 /usr/include/mpi/mpi.h

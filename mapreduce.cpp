@@ -4,11 +4,11 @@
 
 
 #include "mapreduce.h"
-#include "mpi.h"
 #include "errors.h"
 #include "unistd.h"
 #include <sys/stat.h>
 #include <dirent.h>
+#include <fstream>
 
 
 using namespace MAPREDUCE_NAMESPACE;
@@ -23,6 +23,8 @@ MapReduce<Key, Value>::MapReduce(MPI_Comm communicator, char* inpath, char* outp
     MPI_Get_processor_name(processor_name, &name_len);
     setup_machine_specifics();
     DPRINTF(("IN CONSTRUCTOR: Hello this is processor %s, nrank %d.\n", processor_name, nrank));
+    /* Send files of equal sizes to each node to prepare for mapping */
+    distributeWork();
 }
 
 template <class Key, class Value>
@@ -32,28 +34,136 @@ MapReduce<Key,Value>::~MapReduce() {
 }
 
 template <class Key, class Value>
-void MapReduce<Key, Value>::mapper(void (*f)(char *)) {
+void MapReduce<Key, Value>::distributeWork(){
+    if (nrank == 0){
+        /* Setup job... open argv[1] (original dir), obtain paths of containing files */
+        masterSendPath();
+        // receive til finish
+    }
+    else{ // slave
+        receiveWork();
+    }
+};
+
+template <class Key, class Value>
+void * MapReduce<Key, Value>::engine(void* f){
     // distribute task and then run mapper on function f
+    std::string temp;
+    while (1){ // while not empty
+        pthread_mutex_lock(&countLock);
+        if (workqueue.empty()){
+            pthread_mutex_unlock(&countLock);
+            break;
+        }
+        temp = workqueue.front();
+        workqueue.pop();
+        pthread_mutex_unlock(&countLock);
+        // cast the function passed to engine back to the function and run
+        ((void (*)(MapReduce<Key,Value>*, const char *))f)(this,temp.c_str());
+    }
+};
+
+template <class Key, class Value>
+void MapReduce<Key, Value>::mapper(void (*f)(MapReduce<Key, Value> *, const char *)) {
+    /* We use threads to further parallize */
+    DPRINTF((" @@IN MAP: Processor %s, nrank %d: workqueue %s\n ", processor_name, nrank, workqueue.front().c_str()));
+    int status, numthreads;
+    int worksize = workqueue.size();
+    status = pthread_mutex_init(&countLock, nullptr);
+    if (status != 0) err_abort(status, "Initialize countLock in start \n");
+    numthreads = worksize < MAXTHREADS ? worksize : MAXTHREADS;
+    pthread_t threads[numthreads];
+    for (int i = 0; i < numthreads; i++){
+        status = pthread_create(&threads[i], NULL, engine, f);
+        if (status!= 0) err_abort(status, "Create worker");
+    }
+    for (int i = 0; i<numthreads; i++){
+        status = pthread_join(threads[i],NULL);
+        if (status != 0) err_abort(status, "Joining workers");
+    }
+}
+
+
+template <class Key, class Value>
+void MapReduce<Key, Value>::reduceCommunication() { /* reducer uses this to send result from slaves to master */
+    MPI_Datatype kvtype = register_kv_type();
+    if (nrank == 0){
+        MPI_Status status, status2;
+        /* FIRST COLLECT PACKAGES FROM SLAVES ...  */
+        kv *  collect[world_size-1];     // array to store results from slaves
+        int collectsize[world_size-1]; // to remember the size of the kv from
+        int packagesize;                // size of receiving package (the kv pairs that slaves send below)
+        for (int i = 0; i < world_size-1; i++){ // -1 because we are not doing anything
+            MPI_Probe(MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status); // PROBE to get package size
+            MPI_Get_count(&status, kvtype, &packagesize);
+            collect[i]      = new kv[packagesize]; // remember to free after done counting and adding to result !!!!
+            collectsize[i]  = packagesize;
+            MPI_Recv(collect[i], packagesize, kvtype, status.MPI_SOURCE, 0,MPI_COMM_WORLD, &status2);
+        }
+        // now collect has a bunch of kv arrays. we add each on result (can parallelize with threads)
+        for (int i = 0; i < world_size-1; i++){
+            for (int j = 0; j < collectsize[i]; j++){
+                kv temp = collect[i][j];
+                // Here master's keyValue get slaves' new values !!! IMPORTANT!!!
+                keyValue->add_kv(temp.key, temp.value); // this add to the (Key, Vector<Value>) pair for final reduction
+            }
+            // now we are done with that collect
+            delete [] collect[i];
+        }
+    }
+    else{ // send pairs of data --> master gather these pairs and process
+        /* PACKAGE THE MAP AND THEN SEND IT TO MASTER */
+        long size = result.size();
+        kv  * package = new kv[size];
+        int i = 0;
+        for (auto resultkv : result){
+            strcpy(package[i].key, resultkv.first.c_str());
+            package[i++].value = resultkv.second;
+        }
+        MPI_Send(package, size, kvtype, 0, 0, MPI_COMM_WORLD);
+        delete [] package;
+    }
+    // FREE TYPE
+    MPI_Type_free(&kvtype);
 }
 
 template <class Key, class Value>
-void MapReduce<Key, Value>::reducer(void (*f)(char *) ) {
+void MapReduce<Key, Value>::reducer(void (*f)(MapReduce<Key, Value> *) ) {
+    if (nrank != 0 ) {// first we reduce locally on slave nodes
+        f(this); // hopefully call emit_final and we have a finished keyValue object.
+        result = keyValue->get_result(); // so now each node will have the local result to send to master
+    }
+    // the function below will send slaves' data to master
+    reduceCommunication(); // master's kv will receive new kv values
+    if (nrank == 0) {
+        f(this); // now we emit final in master's node and have a finished master's keyValue object which is our final result
+        result = keyValue->get_result(); // this is master's result
+        write_to_file();                   // write result map to file specified by output path
+    }
 
 }
 
 template <class Key, class Value>
 void MapReduce<Key, Value>::emit(Key k, Value v) {
     // send the k, v pair to the KeyValue class and store them in a special way for collating and reducing later
-
+    keyValue->add_kv(k,v);
 }
 
 template <class Key, class Value>
-void MapReduce<Key, Value>::sort_and_shuffle(bool (*compare)(Key, Key) = NULL) {
+void MapReduce<Key,Value>::emit_final(Key k, Value v){
+    keyValue->add_kv_final(k,v);
+};
+
+template <class Key, class Value>
+void MapReduce<Key, Value>::sort_and_shuffle(bool (*compare)(Key, Key)) {
+    // to do
+    if (compare == NULL) DPRINTF(("Debug: in sort_and shuffle NULL\n"));
 
 }
 
 /* PRIVATE FUNCTIONS */
-void MapReduce::setup_machine_specifics() {
+template <class Key, class Value>
+void MapReduce<Key, Value>::setup_machine_specifics() {
     // set up stuff
     path_max = (size_t)pathconf(inputPath, _PC_PATH_MAX);
     if (path_max == -1){
@@ -70,11 +180,13 @@ void MapReduce::setup_machine_specifics() {
     name_max++;
 }
 
-void MapReduce::distributeTask(char *dirPath) {
+
+template <class Key, class Value>
+void MapReduce<Key, Value>::distributeTask(char *dirPath) {
     long totalSize = 0;
     int numFiles, filesPerTask, remainder, sum=0;
 
-    vector<fileInfo> workVector; // datastructure we use to store fileInfo for further processing
+    std::vector<fileInfo> workVector; // datastructure we use to store fileInfo for further processing
     /* First explore the directory and obtain information about files */
     if (nrank == 0) {
         workVector.reserve(10); // reserve 10?
@@ -104,7 +216,7 @@ void MapReduce::distributeTask(char *dirPath) {
                 // ignore . and ..
                 if (strcmp(result->d_name, ".") == 0) continue;
                 if (strcmp(result->d_name, "..") == 0) continue;
-                string newPath(dirPath); // this is our new path to our file
+                std::string newPath(dirPath); // this is our new path to our file
                 newPath += "/";
                 newPath += result->d_name;  // location to entry
                 status = stat(newPath.c_str(), &filestat);
@@ -147,16 +259,18 @@ void MapReduce::distributeTask(char *dirPath) {
     //MPI_Scatterv(&workVector[0]); // this is the array of size numFiles
 }
 
-void MapReduce::masterSendPath(char *path, queue<string> &masterWQ) {
+template <class Key, class Value>
+void MapReduce<Key, Value>::masterSendPath() {
     struct stat filestat;
     int status;
 
-    status = stat(path, &filestat);
+    status = stat(inputPath, &filestat);
+    if (status != 0) fprintf(stderr, "ERROR at stat(inputFile): %d", status);
     // only process directory and obtain files from dir
     if (S_ISDIR(filestat.st_mode)){
         DIR * directory;
         struct dirent* result;
-        directory = opendir(path);
+        directory = opendir(inputPath);
         if (directory == NULL){
             fprintf(stderr, "Unable to open directory\n");
             return;
@@ -172,13 +286,13 @@ void MapReduce::masterSendPath(char *path, queue<string> &masterWQ) {
             if (strcmp (result->d_name, "..") == 0) continue;
 
             char newpath[path_max];
-            strcpy(newpath, path);
+            strcpy(newpath, inputPath);
             strcat(newpath, "/");
             strcat(newpath, result->d_name);
             // now we send the newpath
             if (dest == 0) {
                 DPRINTF(("Sending path %s/%s to %d\n", path, result->d_name, dest));
-                masterWQ.push(newpath);
+                workqueue.push(newpath);
             }
             else{
                 DPRINTF(("Sending path %s/%s to %d\n", path, result->d_name, dest));
@@ -204,7 +318,8 @@ void MapReduce::masterSendPath(char *path, queue<string> &masterWQ) {
         MPI_Send("",1, MPI_CHAR, i, 1, MPI_COMM_WORLD); // tag 1 for done while tag 0 for work
 }
 
-void MapReduce::receiveWork() {
+template <class Key, class Value>
+void MapReduce<Key, Value>::receiveWork() {
     int ierr;
     MPI_Status status;
     char buf[path_max];
@@ -219,19 +334,86 @@ void MapReduce::receiveWork() {
             break;
         }
         else{
-            workqueue.push(string(buf));
+            workqueue.push(std::string(buf));
             DPRINTF(("Processor %s, rank %d: Just pushed %s to front of queue\n",processor_name, nrank, workqueue.front().c_str()));
         }
     }
 }
 
-MPI_Datatype MapReduce::register_kv_type() { // do i need this?
+template <class Key, class Value>
+MPI_Datatype MapReduce<Key, Value>::register_kv_type() { // do i need this?
     const int       structlen = 2;
     int             lengths[structlen] = { MAX_WORD_LEN , 1};
     MPI_Aint        offsets[structlen] = {offsetof(kv, key), offsetof(kv, value)};
-    MPI_Datatype    types[structlen] = {MPI_CHAR, MPI_INT};
+    MPI_Datatype    types[structlen];
+    if (std::is_same<Key, std::string>::value && std::is_same<Value, std::string>::value)
+    {
+        types[0] = MPI_CHAR; types[1]= MPI_INT;
+    }
+    else // todo soon!!!
+        fprintf(stderr, "Warning: not correct type.... registerkvtype.\n");
     MPI_Datatype kvtype;
     MPI_Type_struct(structlen, lengths, offsets, types, &kvtype);
     MPI_Type_commit(&kvtype);
     return kvtype;
 }
+
+template <class Key, class Value>
+void MapReduce<Key,Value>::write_to_file(){
+    /* given a map output, create a file with filename and write wordcount */
+    std::ofstream outfile(outputPath);
+    // since map is already ordered, we just iterate through it and write to file
+    for (auto i : result){
+        outfile << i.first <<  "\t" << i.second << std::endl;
+    }
+    outfile.close();
+}
+
+/* ITERATOR TO ITERATE THROUGH KV PAIRS */
+template <class Key, class Value>
+typename MapReduce<Key, Value>::Iterator MapReduce<Key, Value>::begin() {
+    return Iterator(keyValue,0);
+};
+
+template <class Key, class Value>
+typename MapReduce<Key, Value>::Iterator MapReduce<Key, Value>::end() {
+    return Iterator(keyValue, -1); // for end
+};
+
+template <class Key, class Value>
+MapReduce<Key, Value>::Iterator::Iterator(KeyValue<Key, Value> * kv, int start){
+    if (start == 0)
+        current = kv->begin();
+    else
+        current = kv->end();
+};
+
+
+template <class Key, class Value>
+std::pair<Key,std::vector<Value>>& MapReduce<Key, Value>::Iterator::operator*() const{
+    return *current;
+};
+
+template <class Key, class Value>
+MapReduce<Key,Value>::Iterator& MapReduce<Key, Value>::Iterator::operator++(){
+    return ++current;
+};
+
+template <class Key, class Value>
+MapReduce<Key,Value>::Iterator MapReduce<Key, Value>::Iterator::operator++(int){
+    return current++;
+};
+
+template <class Key, class Value>
+bool  MapReduce<Key, Value>::Iterator::operator == (const MapReduce<Key,Value>::Iterator& rhs) const{
+    return current == rhs.current;
+};
+
+template <class Key, class Value>
+bool  MapReduce<Key, Value>::Iterator::operator != (const MapReduce<Key,Value>::Iterator& rhs) const{
+    return current != rhs.current;
+};
+
+
+template <class Key, class Value>
+MapReduce<Key, Value>::Iterator::~Iterator(){};
