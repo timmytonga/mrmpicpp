@@ -31,4 +31,7 @@ namespace MAPREDUCE_NAMESPACE {
         delete kvmap;
         delete finalMap;
     }
+
+    /* We have to define this so the linker won't complain ... */
+    template class KeyValue<std::string, int>;
 }

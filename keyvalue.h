@@ -19,8 +19,8 @@ public:
     ~KeyValue();
     void add_kv(const Key &k, const Value &v);
     void add_kv_final(const Key &k, const Value&v);
-    typename std::map<Key, valueVector>::iterator begin() const{ return kvmap->begin();};
-    typename std::map<Key, valueVector>::iterator end() const{ return kvmap->end();};
+    typename std::map<Key, valueVector>::iterator begin() { return kvmap->begin();};
+    typename std::map<Key, valueVector>::iterator end() { return kvmap->end();};
     std::map<Key,Value> get_result() const { return *finalMap;};
 private:
     std::map<Key, valueVector>  *kvmap;

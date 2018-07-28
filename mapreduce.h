@@ -47,7 +47,7 @@ private:
     size_t name_max;
 
     /* MPI STUFF */
-    int world_size, nrank, name_len;    // MPI Variables to keep track of current processor
+    int world_size, nrank;    // MPI Variables to keep track of current processor
     char * processor_name;              // name of processor (remember to deallocate)
     MPI_Comm comm;                      // communicator to use
 
@@ -94,7 +94,7 @@ public:
         MapReduce<Key,Value>::Iterator operator++(int);
         bool operator == (const MapReduce<Key,Value>::Iterator& rhs) const;
         bool operator != (const MapReduce<Key,Value>::Iterator& rhs) const;
-        std::pair<Key,std::vector<Value>>& operator* () const;      // dereferencing this iterator returns the collated kv pair
+        std::pair<Key,std::vector<Value>> operator* () ;      // dereferencing this iterator returns the collated kv pair
     private:
         typename std::map<Key, std::vector<Value>>::const_iterator current;
         explicit Iterator(KeyValue<Key,Value> *kv, int);

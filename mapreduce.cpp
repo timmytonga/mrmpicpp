@@ -2,6 +2,7 @@
 // Created by timmytonga on 5/7/18.
 //
 
+#define DEBUG
 
 #include "mapreduce.h"
 #include "errors.h"
@@ -16,11 +17,13 @@ namespace MAPREDUCE_NAMESPACE {
     template<class Key, class Value>
     MapReduce<Key, Value>::MapReduce(MPI_Comm communicator, char *inpath, char *outpath)
             : comm(communicator), inputPath(inpath), outputPath(outpath) {
+        int name_len;
         keyValue = new KeyValue<Key, Value>;
         MPI_Comm_rank(comm, &nrank);
         MPI_Comm_size(comm, &world_size);
-        MPI_Get_processor_name(processor_name, &name_len);
         setup_machine_specifics();
+        processor_name = new char[name_max];
+        MPI_Get_processor_name(processor_name, &name_len);
         DPRINTF(("IN CONSTRUCTOR: Hello this is processor %s, nrank %d.\n", processor_name, nrank));
         /* Send files of equal sizes to each node to prepare for mapping */
         distributeWork();
@@ -29,6 +32,7 @@ namespace MAPREDUCE_NAMESPACE {
     template<class Key, class Value>
     MapReduce<Key, Value>::~MapReduce() {
         // deallocate stuff
+        delete processor_name;
         delete keyValue;
     }
 
@@ -61,23 +65,35 @@ namespace MAPREDUCE_NAMESPACE {
         }
     };
 
+
     template<class Key, class Value>
     void MapReduce<Key, Value>::mapper(void (*f)(MapReduce<Key, Value> *, const char *)) {
-        /* We use threads to further parallize */
-        DPRINTF((" @@IN MAP: Processor %s, nrank %d: workqueue %s\n ", processor_name, nrank, workqueue.front().c_str()));
-        int status, numthreads;
-        int worksize = workqueue.size();
-        status = pthread_mutex_init(&countLock, nullptr);
-        if (status != 0) err_abort(status, "Initialize countLock in start \n");
-        numthreads = worksize < MAXTHREADS ? worksize : MAXTHREADS;
-        pthread_t threads[numthreads];
-        for (int i = 0; i < numthreads; i++) {
-            status = pthread_create(&threads[i], NULL, engine, f);
-            if (status != 0) err_abort(status, "Create worker");
-        }
-        for (int i = 0; i < numthreads; i++) {
-            status = pthread_join(threads[i], NULL);
-            if (status != 0) err_abort(status, "Joining workers");
+//        /* We use threads to further parallize */
+//        DPRINTF((" @@IN MAP: Processor %s, nrank %d: workqueue %s\n ", processor_name, nrank, workqueue.front().c_str()));
+//        int status, numthreads;
+//        int worksize = workqueue.size();
+//        status = pthread_mutex_init(&countLock, nullptr);
+//        if (status != 0) err_abort(status, "Initialize countLock in start \n");
+//        numthreads = worksize < MAXTHREADS ? worksize : MAXTHREADS;
+//        pthread_t * threads = new pthread_t[numthreads];
+//        for (int i = 0; i < numthreads; i++) {
+//            status = pthread_create(&threads[i], NULL, MapReduce<Key,Value>::engine, f);
+//            if (status != 0) err_abort(status, "Create worker");
+//        }
+//        for (int i = 0; i < numthreads; i++) {
+//            status = pthread_join(threads[i], NULL);
+//            if (status != 0) err_abort(status, "Joining workers");
+//        }
+//        delete threads;
+        std::string temp;
+        while (1) { // while not empty
+            if (workqueue.empty()) {
+                break;
+            }
+            temp = workqueue.front();
+            workqueue.pop();
+            // cast the function passed to engine back to the function and run
+            f(this, temp.c_str());
         }
     }
 
@@ -172,8 +188,10 @@ namespace MAPREDUCE_NAMESPACE {
         name_max = (size_t) pathconf(inputPath, _PC_NAME_MAX);
         if (name_max == -1) {
             if (errno == 0) name_max = 256;
-            else
+            else {
+                fprintf(stderr, "Input path is %s\n. Name max is %d\n",inputPath, name_max);
                 errno_abort("Unable to get NAME_MAX");
+            }
         }
         // for null char
         path_max++;
@@ -269,7 +287,7 @@ namespace MAPREDUCE_NAMESPACE {
         // only process directory and obtain files from dir
         if (S_ISDIR(filestat.st_mode)) {
             DIR *directory;
-            struct dirent *result;
+            struct dirent *resultd;
             directory = opendir(inputPath);
             if (directory == NULL) {
                 fprintf(stderr, "Unable to open directory\n");
@@ -277,24 +295,24 @@ namespace MAPREDUCE_NAMESPACE {
             }
             int dest = 0;  // for sending 1 by 1
             while (1) {
-                result = readdir(directory);
-                if (result == NULL) {
+                resultd = readdir(directory);
+                if (resultd == NULL) {
                     break; // end of dir
                 }
                 // skip . and ..
-                if (strcmp(result->d_name, ".") == 0) continue;
-                if (strcmp(result->d_name, "..") == 0) continue;
+                if (strcmp(resultd->d_name, ".") == 0) continue;
+                if (strcmp(resultd->d_name, "..") == 0) continue;
 
                 char newpath[path_max];
                 strcpy(newpath, inputPath);
                 strcat(newpath, "/");
-                strcat(newpath, result->d_name);
+                strcat(newpath, resultd->d_name);
                 // now we send the newpath
                 if (dest == 0) {
-                    DPRINTF(("Sending path %s/%s to %d\n", path, result->d_name, dest));
+                    DPRINTF(("Sending path %s/%s to %d\n", inputPath, resultd->d_name, dest));
                     workqueue.push(newpath);
                 } else {
-                    DPRINTF(("Sending path %s/%s to %d\n", path, result->d_name, dest));
+                    DPRINTF(("Sending path %s/%s to %d\n", inputPath, resultd->d_name, dest));
                     MPI_Send(newpath, path_max, MPI_CHAR, dest, 0, MPI_COMM_WORLD);
                 }
 
@@ -343,7 +361,7 @@ namespace MAPREDUCE_NAMESPACE {
         int lengths[structlen] = {MAX_WORD_LEN, 1};
         MPI_Aint offsets[structlen] = {offsetof(kv, key), offsetof(kv, value)};
         MPI_Datatype types[structlen];
-        if (std::is_same<Key, std::string>::value && std::is_same<Value, std::string>::value) {
+        if (std::is_same<Key, std::string>::value && std::is_same<Value, int>::value) {
             types[0] = MPI_CHAR;
             types[1] = MPI_INT;
         } else // todo soon!!!
@@ -386,18 +404,20 @@ namespace MAPREDUCE_NAMESPACE {
 
 
     template<class Key, class Value>
-    std::pair<Key, std::vector<Value>> &MapReduce<Key, Value>::Iterator::operator*() const {
+    std::pair<Key, std::vector<Value>> MapReduce<Key, Value>::Iterator::operator*()  {
         return *current;
     };
 
     template<class Key, class Value>
     typename MapReduce<Key, Value>::Iterator &MapReduce<Key, Value>::Iterator::operator++() {
-        return ++current;
+        ++current;
+        return *this;
     };
 
     template<class Key, class Value>
     typename MapReduce<Key, Value>::Iterator MapReduce<Key, Value>::Iterator::operator++(int) {
-        return current++;
+        current++;
+        return *this;
     };
 
     template<class Key, class Value>
@@ -413,4 +433,7 @@ namespace MAPREDUCE_NAMESPACE {
 
     template<class Key, class Value>
     MapReduce<Key, Value>::Iterator::~Iterator() {};
+
+    /* We have to define this so the linker won't complain ... */
+    template class MapReduce<std::string, int>;
 }
