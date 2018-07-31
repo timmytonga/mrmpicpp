@@ -25,4 +25,10 @@
 - Script for better file split -- work balance. 
 
 # DIRECTION
-- Under construction! 
+### 1. Writing the mapper and reducer function 
+### 1b. Writing the sorting function 
+### 2. Write main (with includes) and setup MPI related
+### 3. Compile and debug
+### 4. Running on single machine 
+### 5. Running on cluster -- writing host file and configuring mpirun 
+
