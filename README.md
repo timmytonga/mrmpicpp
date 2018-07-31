@@ -1,4 +1,4 @@
-# mpimrcpp
+# MapReduce C++
 
 - Please follow direction below to write a MapReduce program. For example, checkout wordcountmain.cpp and the following comments. 
 
@@ -26,6 +26,10 @@
 
 # DIRECTION
 ### 1. Writing the mapper and reducer function 
+- Purpose/target
+- Example 
+- Options 
+
 ### 1b. Writing the sorting function 
 ### 2. Write main (with includes) and setup MPI related
 ### 3. Compile and debug
