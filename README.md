@@ -29,17 +29,17 @@
 ### 0. Setting up main, MPI, and MapReduce:
 #### a. Main function and MPI:
 - Most main functions used with this C++MapReduce library are required to contain the following (to initialize MPI enviroment):
-``` int main(int argc, char ** argv){
+` int main(int argc, char ** argv){
 	int world_size, my_rank; // contains number of processors and program's rank
 	MPI_Init(&argc, &argv); 	// don't access argc, argv before this line.
 	// below we initialize rank and size 
 	MPI_Comm_rank(MPI_COMM_WORLD, &myrank); // be sure to have consistent comm
 	MPI_Comm_size(MPI_COMM_WORLD, &world_size); 
 	...
-}```
+}`
 - Afterwards, we need to setup mapreduce with our desired key, value:
-```MapReduce<Key,Value> *mr = new MapReduce<Key,Value>(MPI_Comm, const char * <input_directory>, const char * <output_directory>)
-MPI_Barrier(MPI_Comm);``` 
+`MapReduce<Key,Value> *mr = new MapReduce<Key,Value>(MPI_Comm, const char * <input_directory>, const char * <output_directory>)
+MPI_Barrier(MPI_Comm);`
 
 	
 
