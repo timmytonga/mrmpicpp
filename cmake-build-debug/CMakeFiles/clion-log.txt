@@ -1,4 +1,25 @@
-/home/timmytonga/code/clion-2017.3.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/timmytonga/CLionProjects/mapreducecpp
--- Configuring done
--- Generating done
--- Build files have been written to: /home/timmytonga/CLionProjects/mapreducecpp/cmake-build-debug
+C:\Users\Thien\.CLion2017.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/Thien/CLionProjects/mrmpicpp
+-- The C compiler identification is GNU 6.4.0
+-- The CXX compiler identification is GNU 6.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++.exe
+-- Check for working CXX compiler: /usr/bin/c++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at /cygdrive/c/Users/Thien/.CLion2017.2/system/cygwin_cmake/share/cmake-3.8.2/Modules/FindPackageHandleStandardArgs.cmake:137 (message):
+  Could NOT find MPI_C (missing: MPI_C_LIBRARIES MPI_C_INCLUDE_PATH)
+Call Stack (most recent call first):
+  /cygdrive/c/Users/Thien/.CLion2017.2/system/cygwin_cmake/share/cmake-3.8.2/Modules/FindPackageHandleStandardArgs.cmake:377 (_FPHSA_FAILURE_MESSAGE)
+  /cygdrive/c/Users/Thien/.CLion2017.2/system/cygwin_cmake/share/cmake-3.8.2/Modules/FindMPI.cmake:622 (find_package_handle_standard_args)
+  CMakeLists.txt:11 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/cygdrive/c/Users/Thien/CLionProjects/mrmpicpp/cmake-build-debug/CMakeFiles/CMakeOutput.log".
